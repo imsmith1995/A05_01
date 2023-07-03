@@ -21,14 +21,28 @@ namespace A05_01
         {
             string orderName = txtName.Text;
             var hamCost = 2.5;
-            var friesCost = 1.5;
+            var friesCost = 0.0;
             var drinkCost = 1;
             double total = 0;
             string totalFormat = string.Empty;
 
+            //Start of Fries Size and Cost area.
+            if(cmbFries.Text == "Sm   :  $1.00")
+            {
+                friesCost = 1;
+            }
+            if(cmbFries.Text == "Med :  $1.50")
+            {
+                friesCost = 1.5;
+            }
+            if (cmbFries.Text == "Lrg   :  $1.75")
+            {
+                friesCost = 1.75;
+            }
+            //End of Fries Size and Cost area.
 
-
-            if(chkHamburger.Checked )
+            //Start of modifying the Total Cost.
+            if (chkHamburger.Checked )
             {
                 total += hamCost;
             }
@@ -44,8 +58,9 @@ namespace A05_01
             }
 
             totalFormat = total.ToString("C");
+            //Start of modifying the Total Cost.
 
-            if(txtName.Text == string.Empty)
+            if (txtName.Text == string.Empty)
             {
                 MessageBox.Show("Please Enter a Name for the Order.", 
                     "Missing Order Name");
