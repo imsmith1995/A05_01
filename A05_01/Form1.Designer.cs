@@ -37,6 +37,8 @@
             this.btnAddToOrder = new System.Windows.Forms.Button();
             this.lstHamburger = new System.Windows.Forms.CheckedListBox();
             this.cmbFries = new System.Windows.Forms.ComboBox();
+            this.cmbDrink = new System.Windows.Forms.ComboBox();
+            this.cmbDrink2 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // chkHamburger
@@ -67,12 +69,13 @@
             // 
             this.chkDrink.AutoSize = true;
             this.chkDrink.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkDrink.Location = new System.Drawing.Point(778, 348);
+            this.chkDrink.Location = new System.Drawing.Point(802, 348);
             this.chkDrink.Name = "chkDrink";
             this.chkDrink.Size = new System.Drawing.Size(129, 41);
             this.chkDrink.TabIndex = 2;
             this.chkDrink.Text = "Drink";
             this.chkDrink.UseVisualStyleBackColor = true;
+            this.chkDrink.CheckedChanged += new System.EventHandler(this.chkDrink_CheckedChanged);
             // 
             // lblHeader
             // 
@@ -106,11 +109,11 @@
             // btnAddToOrder
             // 
             this.btnAddToOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddToOrder.Location = new System.Drawing.Point(588, 728);
+            this.btnAddToOrder.Location = new System.Drawing.Point(703, 797);
             this.btnAddToOrder.Name = "btnAddToOrder";
             this.btnAddToOrder.Size = new System.Drawing.Size(283, 73);
             this.btnAddToOrder.TabIndex = 6;
-            this.btnAddToOrder.Text = "Add To Order";
+            this.btnAddToOrder.Text = "Place Order";
             this.btnAddToOrder.UseVisualStyleBackColor = true;
             this.btnAddToOrder.Click += new System.EventHandler(this.btnAddToOrder_Click);
             // 
@@ -143,16 +146,50 @@
             "Lrg   :  $1.75"});
             this.cmbFries.Location = new System.Drawing.Point(495, 395);
             this.cmbFries.Name = "cmbFries";
-            this.cmbFries.Size = new System.Drawing.Size(170, 33);
+            this.cmbFries.Size = new System.Drawing.Size(193, 33);
             this.cmbFries.TabIndex = 8;
+            this.cmbFries.Text = "Select A Size";
             this.cmbFries.Visible = false;
+            // 
+            // cmbDrink
+            // 
+            this.cmbDrink.FormattingEnabled = true;
+            this.cmbDrink.Items.AddRange(new object[] {
+            "Sm   :  $1.00",
+            "Med :  $1.50",
+            "Lrg   :  $1.75"});
+            this.cmbDrink.Location = new System.Drawing.Point(793, 395);
+            this.cmbDrink.Name = "cmbDrink";
+            this.cmbDrink.Size = new System.Drawing.Size(193, 33);
+            this.cmbDrink.TabIndex = 9;
+            this.cmbDrink.Text = "Select a Size";
+            this.cmbDrink.Visible = false;
+            // 
+            // cmbDrink2
+            // 
+            this.cmbDrink2.FormattingEnabled = true;
+            this.cmbDrink2.Items.AddRange(new object[] {
+            "Cola",
+            "Diet Cola",
+            "LemonLime Soda",
+            "Mr. Pepper",
+            "Sweet Tea",
+            "Water (Free)"});
+            this.cmbDrink2.Location = new System.Drawing.Point(793, 454);
+            this.cmbDrink2.Name = "cmbDrink2";
+            this.cmbDrink2.Size = new System.Drawing.Size(193, 33);
+            this.cmbDrink2.TabIndex = 10;
+            this.cmbDrink2.Text = "Select a Drink";
+            this.cmbDrink2.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1390, 940);
+            this.ClientSize = new System.Drawing.Size(1103, 983);
+            this.Controls.Add(this.cmbDrink2);
+            this.Controls.Add(this.cmbDrink);
             this.Controls.Add(this.cmbFries);
             this.Controls.Add(this.lstHamburger);
             this.Controls.Add(this.btnAddToOrder);
@@ -180,6 +217,8 @@
         private System.Windows.Forms.Button btnAddToOrder;
         private System.Windows.Forms.CheckedListBox lstHamburger;
         private System.Windows.Forms.ComboBox cmbFries;
+        private System.Windows.Forms.ComboBox cmbDrink;
+        private System.Windows.Forms.ComboBox cmbDrink2;
     }
 }
 

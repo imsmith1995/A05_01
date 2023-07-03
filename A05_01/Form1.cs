@@ -20,10 +20,10 @@ namespace A05_01
         private void btnAddToOrder_Click(object sender, EventArgs e)
         {
             string orderName = txtName.Text;
-            var hamCost = 2.5;
+            var hamCost = 3.5;
             var friesCost = 0.0;
-            var drinkCost = 1;
-            double total = 0;
+            var drinkCost = 0.0;
+            double total = 0.0;
             string totalFormat = string.Empty;
 
             //Start of Fries Size and Cost area.
@@ -40,6 +40,33 @@ namespace A05_01
                 friesCost = 1.75;
             }
             //End of Fries Size and Cost area.
+
+            //Start of Drink Size and Cost area.
+            if (cmbDrink.Text == "Sm   :  $1.00")
+            {
+                drinkCost = 1;
+            }
+            if (cmbDrink.Text == "Med :  $1.50")
+            {
+                drinkCost = 1.5;
+            }
+            if (cmbDrink.Text == "Lrg   :  $1.75")
+            {
+                drinkCost = 1.75;
+            }
+            if (cmbDrink2.Text == "Water (Free)")
+            {
+                drinkCost = 0;
+            }
+
+            //End of Drink Size and Cost area.
+
+            //Start of Bacon Price Modifier
+            if (lstHamburger.GetItemCheckState(7) == CheckState.Checked)
+            {
+                hamCost += 1.5;
+            }
+            //End of Bacon Price Modifier.
 
             //Start of modifying the Total Cost.
             if (chkHamburger.Checked )
@@ -99,6 +126,26 @@ namespace A05_01
             {
                 cmbFries.Visible = false;
                 cmbFries.Enabled = false;
+            }
+        }
+
+        private void chkDrink_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkDrink.Checked )
+            {
+                cmbDrink.Visible = true;
+                cmbDrink.Enabled = true;
+
+                cmbDrink2.Visible = true;
+                cmbDrink2.Enabled = true;
+            }
+            else 
+            { 
+                cmbDrink.Visible = false;
+                cmbDrink.Enabled = false;
+
+                cmbDrink2.Enabled = false;
+                cmbDrink2.Visible = false;
             }
         }
     }
